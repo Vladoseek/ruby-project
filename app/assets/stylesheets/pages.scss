@@ -1,0 +1,50 @@
+body {
+  background-color: #f3f3f3;
+}
+
+.container-info {
+  background-color: #fefefe;
+  padding: 0;
+}
+
+.link {
+  color: #fbfbfb;
+  font-family: 'Raleway',sans-serif;
+}
+
+.link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.item:hover {
+  color: #DADADA;
+  background-color: #4f575d;
+}
+
+.main:hover {
+  text-decoration: none;
+  background-color: #2bc74d;
+}
+
+.post-body {
+  color: #151515;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+  margin: 15px 15px 24px;
+}
+
+.post-title {
+  background-color: #333333;
+  color: #ffffff;
+  font-family: 'Raleway',sans-serif;
+  font-size: 40px;
+  width: 100%;
+  font-weight: 800;
+  line-height: 72px;
+  margin: 0 0 24px;
+  text-align: center;
+  text-transform: uppercase;
+}

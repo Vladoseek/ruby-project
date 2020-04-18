@@ -1,0 +1,72 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul.horizontal li {
+  float: left;
+}
+
+ul.horizontal li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.horizontal li a:hover:not(.active) {
+  background-color: #000;
+}
+
+ul.horizontal li a.active {
+  background-color:#4CAF50;
+}
+
+.post-form {
+  padding: 0 20px 20px 20px;
+}
+
+.body-info {
+  min-height: 500px;
+}
+
+.square_btn {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: .3s;
+}
+
+.square_btn:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.edit-button {
+  color: #ff962b;
+  border: solid 2px #ff962b;
+}
+
+.edit-button:hover {
+  background-color: #ff962b;
+  color: white;
+}
+
+.delete-button {
+  color: #d11300;
+  border: solid 2px #d11300;
+}
+
+.delete-button:hover {
+  background-color: #d11300;
+  color: white;
+}

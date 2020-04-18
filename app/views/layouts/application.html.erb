@@ -4,11 +4,31 @@
     <title>Blog</title>
     <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <nav class="navbar navbar-expand navbar-dark bg-dark p-0">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item nav-link bg-success main">
+          <%= link_to "NikoBlog", home_path, class: "link" %>
+        </li>
+        <li class="nav-item nav-link about item">
+          <%= link_to "Про нас", about_path, class: "link"%>
+        </li>
+        <li class="nav-item nav-link add item">
+          <%= link_to "Добавить пост", new_post_path, class: "link"%>
+        </li>
+      </ul>
+  </nav>
+
+
+    <div class="container container-info mt-4 mb-5">
+      <%= yield %>
+    </div>
+
   </body>
 </html>

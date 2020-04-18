@@ -1,0 +1,9 @@
+<p class="h1 mt-4">Все посты</p>
+
+<% @posts.each do |post| %>
+
+  <%= link_to post.title, post_path(post), class: "h3"%>
+  <p><%= post.brief %></p>
+  <br>
+
+<% end %>
