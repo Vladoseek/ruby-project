@@ -1,10 +1,9 @@
-<div class="container-info">
-  <p class="h1 mt-4">Добавление нового поста</p>
+<p class="post-title">Добавление нового поста</p>
 
-  <div class="post-form">
+<div class="container-info post-form p-2 mb-4">
     <%= form_for :post, url: posts_path do |f| %>
 
-      <div class="mt-5">
+      <div class="mt-2">
         <label>Название</label>
         <%= f.text_field :title, class: "form-control"%>
       </div>
@@ -27,8 +26,6 @@
       <%= f.submit class: "btn btn-block btn-success mt-5"%>
 
     <% end %>
-  </div>
-
 
 </div>
 
