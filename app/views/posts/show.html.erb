@@ -1,21 +1,24 @@
-
-  <div class="mt-4 post-title">
+<div class="container-info">
+  <div class="mt-4 p-1 post-title">
     <%= @post.title %>
   </div>
 
+  <p class="text-muted float-right mr-4 mt-2"><%= @post.created_at.strftime("%B %d, %Y") %></p>
+
   <div class="mt-5 post-body">
-    <p><%= @post.body %></p>
+    <p><%= @post.body.html_safe %></p>
   </div>
 
   <hr>
+  <%= raw @post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'ml-3 badge badge-success'}.join(' ') %>
+  <hr>
+
 
   <div class="row ml-5">
-    <%= link_to "Редактировать", edit_post_path(@post),
+    <%= link_to "Изменить", edit_post_path(@post),
                 class: "mb-5 col-2 solid font-weight-bold text-center square_btn edit-button mr-3" %>
 
     <%= link_to "Удалить", post_path(@post), method: :delete, data: {confirm: "Хотите удалить статью?"},
                 class: "mb-5 col-2 font-weight-bold text-center square_btn delete-button" %>
   </div>
-
-
-
+</div>

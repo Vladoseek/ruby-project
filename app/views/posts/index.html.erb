@@ -1,9 +1,41 @@
-<p class="h1 mt-4">Все посты</p>
+  <p class="post-title">Все посты</p>
 
-<% @posts.each do |post| %>
+  <div class="row">
 
-  <%= link_to post.title, post_path(post), class: "h3"%>
-  <p><%= post.brief %></p>
-  <br>
+    <div class="col-10">
+      <% @posts.each do |post| %>
+        <div class="post-index mt-5 p-2 border">
+          <p class="text-muted float-right"><%= post.created_at.strftime("%B %d, %Y") %></p>
+          <p class= "all-posts-title"><%= post.title %></p>
+          <p сlass= "all-posts-brief"><%= post.brief %></p>
+          <%= link_to "Читать далее...", post_path(post), class: "h6"%><br>
+          <hr>
+          <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t),
+                                                         class: 'badge badge-success'}.join(' ') %>
+        </div>
 
-<% end %>
+      <% end %>
+    </div>
+
+    <div class="col mt-5">
+      <div class="row">
+        <% list = [] %>
+
+        <% @posts.each do |post| %>
+
+          <% post.tags.map(&:name).each do |tag| %>
+            <% list.push(tag) %>
+          <% end %>
+
+        <% end %>
+
+        <%= raw list.uniq.map{ |t| link_to "#"+t, tag_path(t),
+                                           class: 'text-left col-11 badge badge-success border mb-2'}.join(' ') %>
+
+      </div>
+    </div>
+  </div>
+
+
+
+

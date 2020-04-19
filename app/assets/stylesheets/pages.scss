@@ -44,7 +44,27 @@ body {
   width: 100%;
   font-weight: 800;
   line-height: 72px;
-  margin: 0 0 24px;
+  margin: 0 0;
   text-align: center;
   text-transform: uppercase;
 }
+
+.all-posts-title {
+  font-family: 'Roboto',sans-serif;
+  font-size: 24px;
+
+  font-weight: 700;
+}
+
+.tags-title {
+  background-color: #333333;
+  color: #ffffff;
+  font-family: 'Raleway',sans-serif;
+  font-size: 14px;
+  width: 100%;
+  font-weight: 800;
+
+  text-align: center;
+  text-transform: uppercase;
+}
+

@@ -36,6 +36,7 @@ ul.horizontal li a.active {
 
 .body-info {
   min-height: 500px;
+  overflow-y: auto
 }
 
 .square_btn {
@@ -69,4 +70,8 @@ ul.horizontal li a.active {
 .delete-button:hover {
   background-color: #d11300;
   color: white;
+}
+
+.post-index {
+  background-color: #ffffff;
 }

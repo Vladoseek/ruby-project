@@ -19,14 +19,13 @@
         <li class="nav-item nav-link about item">
           <%= link_to "Про нас", about_path, class: "link"%>
         </li>
-        <li class="nav-item nav-link add item">
+        <li class="nav-item nav-link ml-auto add item">
           <%= link_to "Добавить пост", new_post_path, class: "link"%>
         </li>
       </ul>
   </nav>
 
-
-    <div class="container container-info mt-4 mb-5">
+    <div class="container mt-4 mb-5">
       <%= yield %>
     </div>
 
