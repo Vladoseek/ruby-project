@@ -1,24 +1,66 @@
-<div class="container-info">
-  <div class="mt-4 p-1 post-title">
+<div class="container-info mb-5 border mt-4 ">
+
+
+  <div class="mb-3 p-1 post-title">
     <%= @post.title %>
   </div>
 
-  <p class="text-muted float-right mr-4 mt-2"><%= @post.created_at.strftime("%B %d, %Y") %></p>
+  <%= raw @post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'ml-3 badge badge-success'}.join(' ') %>
+
+  <p class="text-muted float-right mr-4"><%= @post.created_at.strftime("%B %d, %Y") %></p>
 
   <div class="mt-5 post-body">
     <p><%= @post.body.html_safe %></p>
   </div>
 
   <hr>
-  <%= raw @post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'ml-3 badge badge-success'}.join(' ') %>
-  <hr>
-
 
   <div class="row ml-5">
     <%= link_to "Изменить", edit_post_path(@post),
-                class: "mb-5 col-2 solid font-weight-bold text-center square_btn edit-button mr-3" %>
+                class: "mb-3 col-2 solid font-weight-bold text-center square_btn edit-button mr-3" %>
 
     <%= link_to "Удалить", post_path(@post), method: :delete, data: {confirm: "Хотите удалить статью?"},
-                class: "mb-5 col-2 font-weight-bold text-center square_btn delete-button" %>
+                class: "mb-3 col-2 font-weight-bold text-center square_btn delete-button" %>
   </div>
 </div>
+
+
+  <div class="mb-5 p-3 container-info border">
+    <%= form_for([@post, @post.comments.build]) do |f| %>
+
+      <div class="mt-2">
+        <label>Пользователь:</label>
+        <%= f.text_field :username, class: "form-control"%>
+      </div>
+
+      <div class="form-group mt-3">
+        <p>Комментарий:</p>
+        <%= f.text_area :body, class: "form-control"%>
+      </div>
+
+      <%= f.submit "Добавить комментарий", class: "btn btn-block btn-success mt-5"%>
+
+    <% end %>
+  </div>
+
+
+  <% if @post.comments.count != 0 %>
+      <% @post.comments.each do |comment| %>
+        <% if !comment.username.nil?  %>
+          <div class="row mb-2">
+
+            <div class="text-center">
+              <p class="ml-3 text-muted p-2"><%= comment.created_at.strftime("%H:%M %d/%m/%Y") %></p>
+            </div>
+
+            <div class="text-center">
+              <p class="ml-3 font-weight-bold text-success p-2"><%= comment.username %></p>
+            </div>
+
+              <p class="ml-3 comment border border-dark col p-2"><%= comment.body %></p>
+          </div>
+        <% end %>
+    <% end %>
+  <% end %>
+
+
