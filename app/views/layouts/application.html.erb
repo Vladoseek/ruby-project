@@ -13,16 +13,16 @@
   <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark p-0">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item nav-link bg-success main">
+        <li class="nav-item nav-link bg-success main font-weight-bold">
           <%= link_to "NikoBlog", home_path, class: "link" %>
         </li>
         <li class="nav-item nav-link ml-auto add item">
-          <%= link_to "Добавить пост", new_post_path, class: "link"%>
+          <%= link_to "Додати новий пост", new_post_path, class: "link"%>
         </li>
       </ul>
   </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5">
       <%= yield %>
     </div>
 

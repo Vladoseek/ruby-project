@@ -1,4 +1,4 @@
-  <p class="post-title">Все посты</p>
+  <p class="post-title">Усі пости</p>
 
   <div class="row">
 
@@ -8,7 +8,7 @@
           <p class="text-muted float-right"><%= post.created_at.strftime("%B %d, %Y") %></p>
           <p class= "all-posts-title"><%= post.title %></p>
           <p сlass= "all-posts-brief"><%= post.brief %></p>
-          <%= link_to "Читать далее...", post_path(post), class: "h6"%><br>
+          <%= link_to "Читати далі...", post_path(post), class: "h6"%><br>
           <hr>
           <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t),
                                                          class: 'badge badge-success'}.join(' ') %>

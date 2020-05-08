@@ -16,10 +16,10 @@
   <hr>
 
   <div class="row ml-5">
-    <%= link_to "Изменить", edit_post_path(@post),
+    <%= link_to "Змінити", edit_post_path(@post),
                 class: "mb-3 col-2 solid font-weight-bold text-center square_btn edit-button mr-3" %>
 
-    <%= link_to "Удалить", post_path(@post), method: :delete, data: {confirm: "Хотите удалить статью?"},
+    <%= link_to "Видалити", post_path(@post), method: :delete, data: {confirm: "Хотите удалить статью?"},
                 class: "mb-3 col-2 font-weight-bold text-center square_btn delete-button" %>
   </div>
 </div>
@@ -29,16 +29,16 @@
     <%= form_for([@post, @post.comments.build]) do |f| %>
 
       <div class="mt-2">
-        <label>Пользователь:</label>
+        <label>Користувач:</label>
         <%= f.text_field :username, class: "form-control"%>
       </div>
 
       <div class="form-group mt-3">
-        <p>Комментарий:</p>
+        <p>Коментар:</p>
         <%= f.text_area :body, class: "form-control"%>
       </div>
 
-      <%= f.submit "Добавить комментарий", class: "btn btn-block btn-success mt-5"%>
+      <%= f.submit "Додати коментар", class: "btn btn-block btn-success mt-5"%>
 
     <% end %>
   </div>

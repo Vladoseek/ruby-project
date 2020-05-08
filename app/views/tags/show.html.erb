@@ -2,7 +2,7 @@
 
 <% if @tag.posts.empty? %>
 
-  <p>Постов нету</p>
+  <p>На жаль, постів немає :(</p>
 
 <% else %>
 
@@ -13,7 +13,7 @@
       <p class="text-muted float-right"><%= post.created_at.strftime("%B %d, %Y") %></p>
       <p class= "h3"><%= post.title %></p>
       <p><%= post.brief %></p>
-      <%= link_to "Читать далее...", post_path(post), class: "h6"%><br>
+      <%= link_to "Читати далі...", post_path(post), class: "h6"%><br>
       <hr>
       <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'badge badge-success'}.join(' ') %>
 
