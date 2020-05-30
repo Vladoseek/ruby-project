@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all
   end
@@ -12,6 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @book = Post.create()
     @post = Post.new(post_params)
 
     if @post.save
@@ -45,6 +48,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :brief, :body, :all_tags)
+    params.require(:post).permit(:title, :brief, :body, :all_tags, :user_id)
   end
 end

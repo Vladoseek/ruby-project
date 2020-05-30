@@ -1,11 +1,14 @@
 <div class="container-info mb-5 border mt-4 ">
 
-
   <div class="mb-3 p-1 post-title">
     <%= @post.title %>
   </div>
 
-  <%= raw @post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'ml-3 badge badge-success'}.join(' ') %>
+  <% if user_signed_in? && (current_user.id == @post.user_id) %>
+    <p class="ml-2 text-left badge badge-warning border mb-2">Твій пост</p>
+  <% end %>
+
+  <%= raw @post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'ml-2 badge badge-success'}.join(' ') %>
 
   <p class="text-muted float-right mr-4"><%= @post.created_at.strftime("%B %d, %Y") %></p>
 
@@ -13,8 +16,10 @@
     <p><%= @post.body.html_safe %></p>
   </div>
 
-  <hr>
 
+
+  <% if user_signed_in? && (current_user.id == @post.user_id) %>
+    <hr>
   <div class="row ml-5">
     <%= link_to "Змінити", edit_post_path(@post),
                 class: "mb-3 col-2 solid font-weight-bold text-center square_btn edit-button mr-3" %>
@@ -22,16 +27,22 @@
     <%= link_to "Видалити", post_path(@post), method: :delete, data: {confirm: "Хотите удалить статью?"},
                 class: "mb-3 col-2 font-weight-bold text-center square_btn delete-button" %>
   </div>
+    <% end %>
 </div>
 
 
   <div class="mb-5 p-3 container-info border">
     <%= form_for([@post, @post.comments.build]) do |f| %>
 
-      <div class="mt-2">
-        <label>Користувач:</label>
-        <%= f.text_field :username, class: "form-control"%>
-      </div>
+      <% if user_signed_in? %>
+        <%= f.hidden_field :username, :value => current_user.name %>
+        <% else %>
+        <div class="mt-2">
+          <label>Користувач:</label>
+          <%= f.text_field :username, class: "form-control"%>
+        </div>
+        <% end %>
+
 
       <div class="form-group mt-3">
         <p>Коментар:</p>

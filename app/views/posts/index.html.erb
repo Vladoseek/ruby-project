@@ -10,6 +10,9 @@
           <p сlass= "all-posts-brief"><%= post.brief %></p>
           <%= link_to "Читати далі...", post_path(post), class: "h6"%><br>
           <hr>
+          <% if user_signed_in? && (current_user.id == post.user_id) %>
+            <p class="text-left badge badge-warning border mb-2">Твій пост</p>
+          <% end %>
           <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t),
                                                          class: 'badge badge-success'}.join(' ') %>
         </div>
@@ -31,6 +34,8 @@
 
         <%= raw list.uniq.map{ |t| link_to "#"+t, tag_path(t),
                                            class: 'text-left col-11 badge badge-success border mb-2'}.join(' ') %>
+
+
 
       </div>
     </div>

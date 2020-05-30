@@ -23,6 +23,8 @@
         <%= f.text_field :all_tags, class: "form-control"%>
       </div>
 
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
       <%= f.submit class: "btn btn-block btn-success mt-5"%>
 
     <% end %>

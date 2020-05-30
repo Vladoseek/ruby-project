@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :taggings
   has_many :comments, :dependent => :destroy
 
+  has_one :user
+
   def all_tags
     self.tags.map(&:name).join(', ')
   end
